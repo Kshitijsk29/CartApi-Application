@@ -3,6 +3,7 @@ package com.nextin.cartapiapplication
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.nextin.cartapiapplication.databinding.ActivityMainBinding
 import retrofit2.Call
@@ -35,17 +36,15 @@ class MainActivity : AppCompatActivity() {
                 val responseBody = response.body()
                 val cartProduct = responseBody?.products!!
 
-                val strBuilder = StringBuilder()
-                for (index in  cartProduct.indices){
-                    strBuilder.append(index)
-                }
-                binding.textView.text = strBuilder
+                binding.recyclerView.layoutManager= LinearLayoutManager(this@MainActivity)
+                val myAdapter = MyAdapter(this@MainActivity, cartProduct)
+
+                binding.recyclerView.adapter = myAdapter
             }
 
             override fun onFailure(p0: Call<Cart>, error: Throwable) {
                 Log.d("Error" , "Given is error "+error.localizedMessage)
             }
-
         })
     }
 }
