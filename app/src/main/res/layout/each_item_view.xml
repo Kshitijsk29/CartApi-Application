@@ -1,37 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="10dp">
 
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:orientation="vertical">
 
-       <ImageView
-           android:id="@+id/imageView"
-           android:layout_width="match_parent"
-           android:layout_height="250dp"
-           />
-       
        <TextView
-           android:layout_width="wrap_content"
+           android:id="@+id/tvId"
+           android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:id="@+id/tvTitle"
-           android:text="Tilte"
-           android:layout_margin="10dp"
-           android:textSize="30sp"
+           android:text="id"
+           android:textSize="20sp"
+           android:padding="10dp"
+           android:textStyle="bold"/>
+
+       <TextView
+           android:id="@+id/userId"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="UserId"
+           android:textSize="20sp"
+           android:padding="10dp"
+           android:textStyle="bold"/>
+
+       <TextView
+           android:id="@+id/discountedTotal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="DiscountedTotal"
+           android:textSize="20sp"
+           android:padding="10dp"
            android:textStyle="bold"/>
        <TextView
-           android:layout_width="wrap_content"
+           android:id="@+id/tvTotal"
+           android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:id="@+id/tvPrice"
-           android:layout_margin="10dp"
-           android:text="Price"
-           android:textSize="25sp"
-           />
+           android:text="Total"
+           android:textSize="20sp"
+           android:padding="10dp"
+           android:textStyle="bold"/>
+       <TextView
+           android:id="@+id/totalProducts"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Total Product"
+           android:textSize="20sp"
+           android:padding="10dp"
+           android:textStyle="bold"/>
+       <TextView
+           android:id="@+id/totalQuantity"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Total Quantity"
+           android:textSize="20sp"
+           android:padding="10dp"
+           android:textStyle="bold"/>
 
    </LinearLayout>
-    
 
 </androidx.cardview.widget.CardView>

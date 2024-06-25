@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface ApiService {
     @GET("carts")
-    fun getCartData():Call<Cart>
+    fun getCartData():Call<MyData>
 }

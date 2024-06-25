@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class MainActivity : AppCompatActivity() {
-    val binding: ActivityMainBinding by lazy {
+    private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
@@ -30,20 +30,19 @@ class MainActivity : AppCompatActivity() {
 
         val retrofitData = builder.getCartData()
 
-        retrofitData.enqueue(object :Callback<Cart>{
-            override fun onResponse(p0: Call<Cart>, response: Response<Cart>) {
 
-                val responseBody = response.body()
-                val cartProduct = responseBody?.products!!
+        retrofitData.enqueue(object  :Callback<MyData>{
+            override fun onResponse(p0: Call<MyData>, p1: Response<MyData>) {
+                val responseBody = p1.body()
+                val cartData = responseBody!!.carts
 
-                binding.recyclerView.layoutManager= LinearLayoutManager(this@MainActivity)
-                val myAdapter = MyAdapter(this@MainActivity, cartProduct)
+                binding.recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
+                val myAdapter = MyAdapter(this@MainActivity, cartData)
 
-                binding.recyclerView.adapter = myAdapter
+                binding.recyclerView.adapter=myAdapter
             }
-
-            override fun onFailure(p0: Call<Cart>, error: Throwable) {
-                Log.d("Error" , "Given is error "+error.localizedMessage)
+            override fun onFailure(p0: Call<MyData>, p1: Throwable) {
+                Log.e("Main Activity ","Failed because ${p1.message} ")
             }
         })
     }
